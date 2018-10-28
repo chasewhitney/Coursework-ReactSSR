@@ -1,3 +1,6 @@
 // Startup point for client-side application
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './components/Home';
 
-console.log('Hello client!');
+ReactDOM.hydrate(<Home />, document.querySelector('#root'));
