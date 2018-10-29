@@ -7,7 +7,6 @@ export default () => {
   return (
     <div>
       <Route exact path='/' component={Home} />
-      <Route path='/hi' component={() => <h1>hello</h1>} />
     </div>
   );
 };
