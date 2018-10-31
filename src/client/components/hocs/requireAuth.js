@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 export default (ChildComponent) => {
 
   class ComposedComponent extends Component {
-    componentDidMount() {
-      if(!this.props.auth){
-        console.log('Please log in!')
-        this.props.history.push('/');
-      }
-    }
     render() {
-      return (
-        <ChildComponent {...this.props} />
-      )
+      switch(this.props.auth) {
+        case false:
+          return <Redirect to='/' />;
+        case null:
+          return <div>Loading...</div>;
+        default:
+          return <ChildComponent {...this.props} />;
+      }
     }
   };
 
